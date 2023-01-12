@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guessing Game</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+      #guess-form {
+        margin-top: 50px;
+      }
+      #guess-input {
+        font-size: 24px;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      #submit-button {
+        font-size: 24px;
+        padding: 10px 20px;
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #result {
+        font-size: 24px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Guessing Game</h1>
+    <p>I'm thinking of a number between 1 and 100. Can you guess what it is?</p>
+    <form id="guess-form">
+      <input type="text" id="guess-input">
+      <br>
+      <input type="button" id="submit-button" value="Guess" onclick="checkGuess()">
+    </form>
+    <p id="result"></p>
+    <script>
+      // Generate a random number to be guessed
+      var correctNumber = Math.floor(Math.random() * 100) + 1;
+
+      function checkGuess() {
+        // Get the user's guess
+        var guess = document.getElementById("guess-input").value;
+
+        // Check if the guess is correct
+        if (guess == correctNumber) {
+          document.getElementById("result").innerHTML = "Congratulations! You guessed the correct number.";
+        } else if (guess > correctNumber) {
+          document.getElementById("result").innerHTML = "Sorry, your guess is too high. Try again.";
+        } else {
+          document.getElementById("result").innerHTML = "Sorry, your guess is too low. Try again.";
+        }
+      }
+    </script>
+  </body>
+</html>
