@@ -1,5 +1,21 @@
-<button id="rickroll-button">Click me!</button>
-<div id="modal" style="display: none;">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <button id="close-button">Close</button>
-</div>
+<button id="game-button">Click me!</button>
+<div id="output"></div>
+var gameButton = document.querySelector("#game-button");
+var output = document.querySelector("#output");
+gameButton.addEventListener("click", function() {
+  var random = Math.floor(Math.random() * 3); // generates a random number between 0 and 2
+  if (random === 0) {
+    output.innerHTML = "You got a colored screen!";
+    output.style.backgroundColor = "red"; // or any other color
+  } else if (random === 1) {
+    output.innerHTML = "";
+    var image = document.createElement("img");
+    image.src = "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg";
+    output.appendChild(image);
+    setTimeout(function(){
+        output.innerHTML = ""
+    }, 2000)
+  } else {
+    output.innerHTML = "You got a message!";
+  }
+});
